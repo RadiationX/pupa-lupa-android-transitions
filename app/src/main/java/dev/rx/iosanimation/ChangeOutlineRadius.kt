@@ -6,8 +6,6 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Outline
 import android.os.Build
-import android.transition.Transition
-import android.transition.TransitionValues
 import android.util.AttributeSet
 import android.util.Log
 import android.util.Property
@@ -15,6 +13,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import androidx.cardview.widget.CardView
+import androidx.transition.Transition
+import androidx.transition.TransitionValues
 
 /**
  * Transitions a view from [startRadius] to [endRadius] through a [ViewOutlineProvider].
@@ -79,9 +79,11 @@ class ChangeOutlineRadius : Transition {
 
     override fun createAnimator(
         sceneRoot: ViewGroup,
-        startValues: TransitionValues,
-        endValues: TransitionValues
+        startValues: TransitionValues?,
+        endValues: TransitionValues?
     ): Animator? {
+        startValues ?: return null
+        endValues ?: return null
         // The view on the start and end values is the same, so it doesn't matter which we use
         val view = endValues.view
         // We want the view to clip to the round rect we're going to set
