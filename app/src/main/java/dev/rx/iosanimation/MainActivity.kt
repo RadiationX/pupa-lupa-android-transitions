@@ -48,10 +48,13 @@ class MainActivity : AppCompatActivity() {
                     val path1 = AccelerateDecelerateInterpolator()
                     val path2 = DecelerateInterpolator()
                     val path3 = PathInterpolator(0.3f, 0.5f, 0.2f, 1f)
+                    val path4 = PathInterpolator(0.5f, 1.17f, 0.45f, 1.09f)
                     override fun getInterpolation(input: Float): Float {
-                        return super.getInterpolation(path1.getInterpolation(input))
+                        return path4.getInterpolation(input)
                     }
                 }
+
+                val gaddamn1 = PathInterpolator(0.3f, 0.5f, 0.2f, 1f)
 
 
                 sharedElementEnterTransition = TransitionSet()
@@ -79,12 +82,11 @@ class MainActivity : AppCompatActivity() {
                         interpolator = FastOutSlowInInterpolator()
                     })
                     .apply {
-                        duration = 600
+                        duration = 400
                         ordering = TransitionSet.ORDERING_TOGETHER
-
-
                         //interpolator = OvershootInterpolator(1f)
                     }
+
             })
             .apply {
                 sharedView?.also {
