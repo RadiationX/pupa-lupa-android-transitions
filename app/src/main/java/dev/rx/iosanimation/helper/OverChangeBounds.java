@@ -1,4 +1,4 @@
-package dev.rx.iosanimation;
+package dev.rx.iosanimation.helper;
 
 import android.content.Context;
 import android.graphics.Rect;
