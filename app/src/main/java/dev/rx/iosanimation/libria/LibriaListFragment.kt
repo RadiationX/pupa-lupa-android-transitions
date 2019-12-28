@@ -29,13 +29,19 @@ class LibriaListFragment : Fragment(), TransitionProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button.setOnClickListener {
+        item1.setOnClickListener {
             (activity as MainActivity).navSecond()
         }
     }
 
     override fun transitionViews(): List<View> {
-        return emptyList()
+        return listOf(
+            itemImageCard,
+            itemImage,
+            itemTitle,
+            itemDesc,
+            itemFakeBg
+        )
     }
 
 }

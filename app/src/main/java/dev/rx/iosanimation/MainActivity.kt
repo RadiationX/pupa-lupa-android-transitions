@@ -56,7 +56,15 @@ class MainActivity : AppCompatActivity() {
                 R.anim.screen_ios_pop_enter,
                 R.anim.screen_ios_pop_exit
             )*/
-            .replace(R.id.container, LibriaDetailsFragment.newInstance())
+            /*.setCustomAnimations(
+                R.anim.screen_enter,
+                R.anim.screen_exit,
+                R.anim.screen_pop_enter,
+                R.anim.screen_pop_exit
+            )*/
+            .replace(R.id.container, LibriaDetailsFragment.newInstance().apply {
+                transitionsView = currentProvider.transitionViews()
+            })
             .apply {
                 currentProvider.transitionViews()
                     .forEach { addSharedElement(it, it.transitionName) }
