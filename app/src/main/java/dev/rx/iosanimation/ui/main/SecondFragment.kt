@@ -7,11 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.SharedElementCallback
 import androidx.core.view.updateLayoutParams
 import dev.rx.iosanimation.R
-import kotlinx.android.synthetic.main.second_fragment.*
-import kotlinx.android.synthetic.main.second_fragment.shared0
 import kotlinx.android.synthetic.main.second_fragment_coord.*
+import kotlinx.android.synthetic.main.second_fragment_coord.scrollView
+import kotlinx.android.synthetic.main.second_fragment_coord_two.*
 
 class SecondFragment : Fragment() {
 
@@ -24,11 +25,24 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.second_fragment_coord, container, false)
+        return inflater.inflate(R.layout.second_fragment_coord_two, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        /*setEnterSharedElementCallback(object :SharedElementCallback(){
+            override fun onSharedElementEnd(
+                sharedElementNames: MutableList<String>?,
+                sharedElements: MutableList<View>?,
+                sharedElementSnapshots: MutableList<View>?
+            ) {
+                super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots)
+
+                scrollView?.apply {
+                    animate().alpha(1f).start()
+                }
+            }
+        })*/
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,8 +50,10 @@ class SecondFragment : Fragment() {
         Log.e("lalala", "onViewCreated $this")
 
         view.postDelayed({
-
-        },1000)
+            scrollView?.apply {
+                //animate().alpha(1f).setDuration(225).start()
+            }
+        }, 400)
     }
 
     override fun onDestroyView() {

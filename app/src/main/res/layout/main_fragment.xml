@@ -11,18 +11,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:clipChildren="false"
         android:layout_height="wrap_content"
+        android:clipChildren="false"
         android:orientation="vertical">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
-            android:translationZ="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:context=".ui.main.MainFragment">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shared4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#f00"
+                android:transitionName="shared4"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@id/shared"
+                app:layout_constraintEnd_toEndOf="@id/shared"
+                app:layout_constraintStart_toStartOf="@id/shared"
+                app:layout_constraintTop_toTopOf="@id/shared" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/shared"
@@ -32,12 +43,13 @@
                 android:focusable="true"
                 android:transitionName="shared"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="24dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0">
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/shared0"
@@ -49,16 +61,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <View
-                        android:id="@+id/shared4"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:background="#fff"
-                        android:transitionName="shared4"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <FrameLayout
                         android:id="@+id/shared5"
@@ -122,52 +124,59 @@
                         </LinearLayout>
                     </FrameLayout>
 
-                    <Space
-                        android:id="@+id/superspace"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="@id/shared5" />
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/shared6"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:transitionName="shared6"
-                        app:cardBackgroundColor="#fafaff"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/superspace">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-medium"
-                                android:text="Какой-то текст"
-                                android:textColor="#7000"
-                                android:textSize="16sp" />
-
-
-                            <androidx.appcompat.widget.AppCompatTextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:maxLines="2"
-                                android:text="Еще какой-то текст, только снизу"
-                                android:textColor="#c000"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:id="@+id/superspace"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="@id/shared" />
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shared6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:transitionName="shared6"
+                app:cardBackgroundColor="#fafaff"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="16dp"
+                app:layout_constraintEnd_toEndOf="@id/shared"
+                app:layout_constraintStart_toStartOf="@id/shared"
+                app:layout_constraintTop_toBottomOf="@id/superspace">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Какой-то текст"
+                        android:textColor="#7000"
+                        android:textSize="16sp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:maxLines="2"
+                        android:text="Еще какой-то текст, только снизу"
+                        android:textColor="#c000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -175,7 +184,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1000dp"
-            android:background="#ffff" />
+            android:background="#0fff" />
 
     </LinearLayout>
 

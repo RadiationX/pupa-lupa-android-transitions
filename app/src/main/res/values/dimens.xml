@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="anim_ios_dur">480</integer>
+    <integer name="anim_ios_offset">48</integer>
+    <integer name="anim_dur">2000</integer>
+    <integer name="anim_dur_small">1500</integer>
+</resources>
